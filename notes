@@ -1,0 +1,9 @@
+##############
+August 17th
+###############
+- how to calculate p or Q in quality score? p is calculated from floursences (some formula with null expectation from known sequences)
+
+############
+August 19th
+###########
+- scaffold: can order contigs when have paired end data if one end in one contig and the other end in another contig (and you know roughly how many bps are between the two ends) 
