@@ -7,14 +7,17 @@ biocLite("edgeR")
 getwd()
 
 #paste it in here (i.e. replace my path with yours):
-setwd ("/Users/kayhodgins/Dropbox/Documents/bioinformatics_workshop/bioinformatics_examples/data_for_exercises/rnaseq")
+setwd ("/Users/mmosmond/Documents/PHD/biol525D/Topic_6")
 
 #load the libraries you will need 
 library ("edgeR")
+install.packages("gplots")
 library ("gplots")
 
 #read in the data
 data <- read.table ("cold_hot_expression.txt")
+
+head(data)
 
 #extract and turn the column names into a factor
 treat <- as.factor (sapply (strsplit(colnames(data),split = ""),"[[",1))
@@ -31,6 +34,10 @@ cpm.list1 <- cpm(list1)
 #filter out the genes with less than 1 cpm in 6 or fewer libraries (a somewhat arbitrary choice). Genes are usually dropped if they can't possibly be expressed in all the samples for any of the conditions.
 list2 <- list1[rowSums(cpm.list1 > 1) >= 6,]
 cpm.list2 <- cpm.list1[rowSums(cpm.list1 > 1) >= 6,]
+
+#how many genes have we lost?
+dim(cpm.list1)
+dim(cpm.list2)
 
 #generate a multi-dimensional scaling plot
 col_treat <- as.character (treat)
@@ -51,12 +58,14 @@ list2 <- estimateGLMTagwiseDisp (list2, design)
 glm.list2 <- glmFit (list2, design, dispersion = list2$tagwise.dispersion)
 lrt.list2 <- glmLRT (glm.list2)
 
+lrt.list2
+
 #get the topTags out of the model
 top <- topTags (lrt.list2, n = 1000)$table
 
-fdr<-p.adjust(lrt.list2$table$PValue, method='fdr')
+fdr<-p.adjust(lrt.list2$table$PValue, method='fdr') #correct for multiple comparisons
 hist(fdr,  breaks=1000)
-dim(lrt.list2$table[fdr<0.05,])
+dim(lrt.list2$table[fdr<0.05,]) #how many genes above the cutoff
 
 #make a heatmap by getting the counts per million from each gene and turning them relative proportions (columns add up to 1)
 sub1 <- colSums (cpm.list2)
@@ -70,11 +79,8 @@ index2 <- names1 %in% names2
 heatmap1 <- sub3[index2,]
 
 #play around with the options to make the plot fit what you like for options type ?heatmap.2
-heatmap.2 (heatmap1, trace = "none", scale = "row", Colv = FALSE, labCol = treat,cexCol = 1, dendrogram = "none", labRow = FALSE, colsep =c(6), sepcolor = "white", sepwidth = 0.03)
-
+heatmap.2 (heatmap1, trace = "none", scale = "row", Colv = FALSE, labCol = treat, cexCol = 1, dendrogram = "none", labRow = FALSE, colsep =c(6), sepcolor = "white", sepwidth = 0.03)
 
 #plot the individual expression values from a single gene:
 subdat1 <- data["comp520_c0",]
 stripchart (log10(as.numeric (subdat1)) ~ treat, vertical = T, xlim = c (0.5,2.5), method = "jitter", ylab = "Log10 Expression count")
-
-
