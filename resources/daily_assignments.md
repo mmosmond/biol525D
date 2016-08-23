@@ -46,7 +46,7 @@ contigs.fa	83			292.012048192771	24237		164	41	2217	566
 ####Questions 2-5 are due Monday August 22nd.
 
 ###Topic 6:
-
+What expression measure would you use to compare gene expression between different genes and why? Is it appropriate to compare the raw expression counts? Can you get more appropriate data from RSEM?
 ###Topic 7:
 
 ###Topic 8:
