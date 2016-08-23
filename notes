@@ -6,4 +6,10 @@ August 17th
 ############
 August 19th
 ###########
-- scaffold: can order contigs when have paired end data if one end in one contig and the other end in another contig (and you know roughly how many bps are between the two ends) 
+- scaffold: can order contigs when have paired end data if one end in one contig and the other end in another contig (and you know roughly how many bps are between the two ends)
+
+###########
+August 23rd
+##########
+- can use IGV to view bam files (stacks reads against reference and highlights SNPs); better than samtools -tview
+- check that all vcf files have an associated idx file before going on to the next step (realignmenttargetcreator gatk) bceause sometimes gatk crashes and gives truncated vcf file. can tell because idx created after. rerun if gatk crashed (seems to do so randomly bcause of memory issues).
