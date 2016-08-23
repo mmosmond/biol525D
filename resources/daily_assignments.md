@@ -29,6 +29,19 @@ There are a number of setting you could change in bwa-mem to reduce the proporti
 Quantify the assembly metrics for your first assembly that you ran without any options (sa_assembly21). Pick two or three different sets of parameters to run. Compare the resulting assemblies with one another and discuss which ones seemed to have improved the assembly and why that might be.
 
 ###Answer:
+I played around with a few setttings (-min_contig_lgth, -scaffolding, -ins_length) but the one that had the largest impact was coverage cutoff (-cov_cutoff). Increasing minimum coverage obviously reduces the number of sequences assembled and the total length of the assembled region. However, an intermediate cutoff maximizes the average length of a contig and the n50 (and hence improves assembly most). An intermediate coverage cutoff is presumably helping by removing errorenous contigs.
+
+-cov_cutoff 0
+File		Number of sequences	Average length		Total length	Median	min	max	n50
+contigs.fa	89110			75.059645382112		6688565		65	41	967	74
+
+-cov_cutoff 10
+File		Number of sequences	Average length		Total length	Median	min	max	n50
+contigs.fa	2615			1063.75564053537	2781721		534	41	11869	2330
+
+-cov_cutoff 100
+File		Number of sequences	Average length		Total length	Median	min	max	n50
+contigs.fa	83			292.012048192771	24237		164	41	2217	566
 
 ####Questions 2-5 are due Monday August 22nd.
 
