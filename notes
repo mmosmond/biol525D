@@ -19,3 +19,10 @@ August 24th
 ###########
 - pruning linked SNPs: <1000bp separation (bceause programs assumed unlinked)
 
+##########
+August 25th
+##########
+- try running bash script on just a couple samples first
+- try outputting at different points to make sure it works (have an exit after the output until know working). once it works remove exit and comment out output step. or (more fancy) you could have an if statement that says if output1 already exists then don't run that section of code and move onto next step. $ if [ ! -f output1 ]; then output; fi
+- when have error try running with subset of data, slowly build up until find error (eg what input is messing it up)
+
