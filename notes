@@ -13,3 +13,9 @@ August 23rd
 ##########
 - can use IGV to view bam files (stacks reads against reference and highlights SNPs); better than samtools -tview
 - check that all vcf files have an associated idx file before going on to the next step (realignmenttargetcreator gatk) bceause sometimes gatk crashes and gives truncated vcf file. can tell because idx created after. rerun if gatk crashed (seems to do so randomly bcause of memory issues).
+
+############
+August 24th
+###########
+- pruning linked SNPs: <1000bp separation (bceause programs assumed unlinked)
+

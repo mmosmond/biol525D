@@ -48,11 +48,9 @@ contigs.fa	83			292.012048192771	24237		164	41	2217	566
 ###Topic 6:
 What expression measure would you use to compare gene expression between different genes and why? Is it appropriate to compare the raw expression counts? Can you get more appropriate data from RSEM?
 ###Topic 7:
-
+What is strand bias and why would you filter based on it?
 ###Topic 8:
-
-###Topic 9:
-
+What is the average Fst between the two populations in our example data? Hint, SNPrelate can calculate Fst.
 ###Topic 10:
-
+What does it mean when something has 50% bootstrap support? What are two possible reasons that a node may have low support? Include one biological and one methodological reason.
 ####Questions 6-10 are due Monday August 29th.
