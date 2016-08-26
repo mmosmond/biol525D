@@ -14,6 +14,8 @@ make
 make install
 
 #Next we use it to calculate Fst
+#You will have to download from the github page samplelist.P1.txt and samplelist.P2.txt
+cd /home/ubuntu
 /home/ubuntu/bin/vcftools/src/cpp/vcftools  \
 --vcf biol525D.snps.vcf \
 --weir-fst-pop samplelist.P1.txt --weir-fst-pop samplelist.P2.txt \
@@ -36,7 +38,7 @@ Next we'll take the Fst values and plot them in R. Transfer the biol525D.weir.fs
 
 ``` r
 #Load in some libraries
-#install.packages("qqman")
+install.packages("qqman")
 library(qqman)
 library(ggplot2)
 library(dplyr)

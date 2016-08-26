@@ -1,11 +1,12 @@
 # Topic 10: Phylogenetics
 
-The first step is to convert the vcf file into a fasta file. We are going to use a perl script in this github directory. Download SNPtable2fasta.pl and move it into your bin directory. It converts the tab style file that we created to a fasta, for heterozygous sites it picks one random allele. IQtree and Splitstree both have seem to ignore ambiguous bases, so we're not going to use them.
+The first step is to convert the formatted.tab file into a fasta file. We are going to use a perl script in this github directory. Download SNPtable2fasta.pl and move it into your bin directory. It converts the tab style file that we created to a fasta, for heterozygous sites it picks one random allele. IQtree and Splitstree both have seem to ignore ambiguous bases, so we're not going to use them.
 
 We also have to remove invariant sites, so that we can use an ascertainment bias in IQtree. 
 IQtree also has a [webserver](http://iqtree.cibiv.univie.ac.at/).
 
 ```
+#Note: biol525D.snps.formatted.tab comes from topic 7
 cat biol525D.snps.formatted.tab | perl bin/SNPtable2fasta_pickoneallele.pl | perl bin/fasta2removeinvariant.pl > biol525D.snps.fasta
 
 #Next we should install IQ-tree
