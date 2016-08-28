@@ -1,0 +1,34 @@
+source("http://bioconductor.org/biocLite.R")#
+biocLite("gdsfmt")#
+biocLite("SNPRelate")#
+#
+library(gdsfmt)#
+library(SNPRelate)
+biocLite("SNPRelate")
+library(gdsfmt)
+library(SNPRelate)
+gds_filename<- c("/Users/mmosmond/Documents/PHD/biol525D/Topic_8-9/biol525D.snps.gds")
+snpgdsSummary(gds_filename())
+snpgdsSummary(gds_filename)
+head(gds_filename)
+genofile <- snpgdsOpen(gds_filename))
+genofile <- snpgdsOpen(gds_filename)
+head(genofile)
+head(read.gdsn(index.gdsn(genofile, "sample.id")))
+read.gdsn(index.gdsn(genofile, "sample.id"))
+read.gdsn(index.gdsn(genofile, "sample.annot/pop.group"))
+sampleinfo_filename <- c("/Users/mmosmond/Documents/PHD/biol525D/Topic_8-9/biol525D_popinfo.csv")
+sampleinfo<-read.csv(sampleinfo_filename)
+sampleinfo
+sampleinfo$pop
+pop.code<-sampleinfo$pop
+samp.sel <- sample.id[flag]
+sample.id <- read.gdsn(index.gdsn(genofile, "sample.id"))
+samp.sel <- sample.id[flag]
+samp.sel <- sample.id
+pop.sel <- pop_code
+pop.code<-sampleinfo$pop
+pop_code<-sampleinfo$pop
+pop.sel <- pop_code
+snpgdsFst(genofile, sample.id=samp.sel, population=as.factor(pop.sel),
+method="W&C84")

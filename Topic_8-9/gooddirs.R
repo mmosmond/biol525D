@@ -24,7 +24,7 @@ for (k in 1:10){
   #Label the columns (one for each group)
   Qnames <-paste("Q",seq(1:k),sep = "")
   colnames(data) <- Qnames
-    #Add sample info to Q values
+  #Add sample info to Q values
   data.info <- cbind(data, sampleinfo)
   #Melt the data into long format
   data.melt <- melt(data.info, id.var=c("name","pop","lat","long","color"))
@@ -78,8 +78,7 @@ data.full %>% filter(k == 2) %>%
   scale_fill_manual(values=c("red","blue"))
   
 #Plotting challenge 2 * Download the "biol525D_FSexample" datasets from the github/Topic 8-9 page. Plot each of these as structure results and order the individuals by their admixture scores.
-             
-                      
+                 
 #Load the data file
 data.full <- data.frame(name=character(),
                         variable=character(),
