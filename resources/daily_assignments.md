@@ -49,19 +49,19 @@ contigs.fa	83			292.012048192771	24237		164	41	2217	566
 What expression measure would you use to compare gene expression between different genes and why? Is it appropriate to compare the raw expression counts? Can you get more appropriate data from RSEM?
 
 ###Answer:
-I would use FPKM (fragments per kilobase of transcript per million reads mapped) because it corrects for transcript length (per kilobase of transcript), allowing for comparisons between genes. It also corrects for the total size of the library (per million reads mapped), allowing for comparisons of gene expression between individuals. It is not appropriate to compare the raw expression counts because of the above issues: longer transcripts will have more fragments sequenced and because of variability in DNA extraction and processesing individuals will differ in the number of fragments sequenced. RSEM (RNAseq by expectation-maximization) outputs FPKM (rsem-calculate-expression) from FASTA or FASTQ input. 
+I would use FPKM (fragments per kilobase of transcript per million reads mapped) because it corrects for transcript length (per kilobase of transcript), allowing for comparisons between genes. It also corrects for the total size of the library (per million reads mapped), allowing for comparisons of gene expression between individuals. It is not appropriate to compare the raw expression counts because of the above issues: (i) longer transcripts will have more fragments sequenced and (ii) because of variability in DNA extraction and processesing individuals will differ in the number of fragments sequenced. RSEM (RNAseq by expectation-maximization) outputs FPKM (rsem-calculate-expression) from FASTA or FASTQ input. 
 
 ###Topic 7:
 What is strand bias and why would you filter based on it?
 
 ###Answer:
-As stated on the GATK website, "[s]trand bias is a type of sequencing bias in which one DNA strand is favored over the other...." It is detected by a difference in the number of reference and alternate nucleotides between forward and reverse strands (p-value from Fisher's exact test). You want to filter SNPs with sufficiently likely strand bias because it means the information you are using to detect the SNP is erroneous in some way. 
+As stated on the GATK website, "[s]trand bias is a type of sequencing bias in which one DNA strand is favored over the other...." It is detected by a difference in the number of reference and alternate nucleotides between forward and reverse strands (p-value from Fisher's exact test). You want to filter SNPs with sufficiently likely strand bias because it means the information you are using to detect the SNP is erroneous in some way (sorry, a little vague here because still unsure of where the bias comes from - it sounds like some bias can occur during sequencing and some through filtering). 
 
 ###Topic 8:
 What is the average Fst between the two populations in our example data? Hint, SNPrelate can calculate Fst.
 
 ###Answer:
-snpgdsFst gives me an Fst of roughly 0.499, using 4289 SNPs. 
+snpgdsFst gives me an average Fst of roughly 0.499, using 4289 SNPs. 
 
 ###Topic 10:
 What does it mean when something has 50% bootstrap support? What are two possible reasons that a node may have low support? Include one biological and one methodological reason.
